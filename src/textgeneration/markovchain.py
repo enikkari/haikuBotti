@@ -4,7 +4,8 @@
 import random
 import re
 import string
-import hypenator as hp
+
+import src.textgeneration.hypenator as hp
 
 # TODO: implement markov chain as a ngram model in ARPA format with back-off
 # current method is ineffective with large corpora
@@ -20,15 +21,13 @@ def get_words(text):
     return tokens
 
 class MarkovChain:
-    def __init__(self, n, language='finnish'):
+    def __init__(self, n, corpus="", language='finnish'):
         self.n = n
-        # self.words = list(set(t_content))
-        # self.uwords = dict()#dict.fromkeys([w for w in self.words])
         self.map = {}
         self.map[""] = [""]
-        # map.learn(t_content, self.n)
         self.words = []
         self.hype = hp.Hypenator(language)
+        self.learn(corpus)
 
     def learn(self, content):
         if len(content)>0:
@@ -44,7 +43,8 @@ class MarkovChain:
                         map[key].append(word)
                     else:
                         map[key] = [word]
-        #return map
+        else:
+            print "No content in corpus"
 
     def text(self, nwords, last_word=""):
         state = last_word
@@ -92,7 +92,9 @@ class MarkovChain:
             iterations = iterations + 1
         if iterations == 4 and len(lines) != 4:
             print "not enough lines found"
-        return "\n".join(lines)
+        poem = "\n".join(lines)
+        print poem
+        return poem
 
     def haiku(self, last_word=""):
         # 5-7-5
@@ -124,4 +126,6 @@ class MarkovChain:
                     else:
                         a = a + 1
             iterations = iterations + 1
-        return "\n".join(poem)
+        joined_poem = "\n".join(poem)
+        print joined_poem
+        return joined_poem
