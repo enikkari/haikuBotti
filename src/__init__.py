@@ -1,0 +1,2 @@
+def textgeneration():
+    return None

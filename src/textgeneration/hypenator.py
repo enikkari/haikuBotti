@@ -15,12 +15,11 @@ punct = {'.', ',', ':', ';', '?', '!', '/', '\'', '/"', '-', '(', ')', '[', ']',
 
 class Hypenator:
     def __init__(self, language):
-        if (language == 'finnish'):
-            self.hype = self.fin_hype
-        else:
-            print 'not supported'
+        print "init hype"
+        self.hype = self.fin_hype
 
     def fin_hype(self, word):
+        print word
         w = list(word.lower())
         hype = []
         syl = [w[0]]
