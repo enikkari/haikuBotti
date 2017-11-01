@@ -19,7 +19,6 @@ class Hypenator:
         self.hype = self.fin_hype
 
     def fin_hype(self, word):
-        print word
         w = list(word.lower())
         hype = []
         syl = [w[0]]

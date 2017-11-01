@@ -5,7 +5,8 @@ import random
 import re
 import string
 
-import src.textgeneration.hypenator as hp
+import haikubotti.src.textgeneration.hypenator as hp
+
 
 # TODO: implement markov chain as a ngram model in ARPA format with back-off
 # current method is ineffective with large corpora
@@ -44,7 +45,7 @@ class MarkovChain:
                     else:
                         map[key] = [word]
         else:
-            print "No content in corpus"
+            print("No content in corpus")
 
     def text(self, nwords, last_word=""):
         state = last_word
@@ -127,5 +128,4 @@ class MarkovChain:
                         a = a + 1
             iterations = iterations + 1
         joined_poem = "\n".join(poem)
-        print joined_poem
         return joined_poem

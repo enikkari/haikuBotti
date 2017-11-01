@@ -4,7 +4,8 @@ import os
 import random
 from Tkinter import *
 
-import src.textgeneration.markovchain as mc
+import haikubotti.src.textgeneration.markovchain as mc
+
 
 class App(Frame):
     def __init__(self, master):
