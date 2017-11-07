@@ -5,7 +5,7 @@ import random
 import re
 import string
 
-import haikubotti.src.textgeneration.hypenator as hp
+import hypenator as hp
 
 
 # TODO: implement markov chain as a ngram model in ARPA format with back-off
